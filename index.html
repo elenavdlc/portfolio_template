@@ -1,423 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grade 2 Demo: Bootstrap + GSAP Scroll</title>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Elena Valencia - Diseñadora Gráfica">
+    <meta name="keywords" content="portfolio, diseño, animación, 3D, fotografía, Elena Valencia, diseño gráfico">
+    <meta name="author" content="Elena Valencia">
+    
+    <!-- ETIQUETAS OPEN GRAPH / FACEBOOK -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ELENA VALENCIA - Portfolio">
+    <meta property="og:description" content="Portfolio de Elena Valencia - Diseñadora Gráfica">
+    
+    <!-- ETIQUETAS TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ELENA VALENCIA - Portfolio">
+    <meta name="twitter:description" content="Portfolio de Elena Valencia - Diseñadora Gráfica">
+    
+    <!-- BOTTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Fuente Against -->
+    <style>
+        @font-face {
+            font-family: 'Against';
+            src: url('css/fonts/against\ regular.otf') format('opentype'),
+                 url('css/fonts/against\ regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/index.css">
 
-    <!-- ETIQUETAS OPEN GRAPH / FACEBOOK  -->
+      <!-- TITULO  -->
+    <title>ELENA VALENCIA - Portfolio</title>
+</head>
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+<body>
+    <!-- DARK MODE -->
+    <button class="dark-mode-toggle-float" id="darkModeToggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon"></span>
+    </button>
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="./assets/css/otros.css" />
-    <!-- Custom Scripts -->
-    <script src="./assets/js/main.js" defer></script>
-  </head>
-  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Portfolio</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
+  <!-- ==========================
+  HEADER
+  ========================== -->
+    <header class="navbar-custom" id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-content">
+                <!-- NOMBRE -->
+                <div class="logo">
+                    <a href="#home">E.Valencia</a>
+                </div>
+                
+                <!-- MENÚ -->
+                <nav class="segmented-control d-none d-md-flex" role="tablist">
+                    <a href="#home" class="segment" role="tab" aria-selected="true">Home</a>
+                    <a href="#about" class="segment" role="tab" aria-selected="false">Sobre mí</a>
+                    <a href="#projects" class="segment" role="tab" aria-selected="false">Proyectos</a>
+                    <a href="#contact" class="segment" role="tab" aria-selected="false">Contacto</a>
+                </nav>
+                
+                <!-- MENÚ HAMBURGUESA - BOTÓN -->
+                <button class="mobile-menu-btn d-md-none" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-      </div>
-    </nav>
-
-    <main>
-      <!-- Hero Section -->
-      <section
-        id="hero"
-        class="hero min-vh-100 d-flex align-items-center position-relative overflow-hidden"
-      >
-        <!-- Parallax Background -->
-        <div class="hero-bg position-absolute w-100 h-100"></div>
-
-        <!-- Floating shapes (GSAP animated) -->
-        <div class="floating-shapes">
-          <div class="shape shape-1"></div>
-          <div class="shape shape-2"></div>
-          <div class="shape shape-3"></div>
+        
+        <!-- MENÚ HAMBURGUESA - SECCIONES -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+        <div class="mobile-menu d-md-none" id="mobileMenu">
+            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#about" class="mobile-nav-link">Sobre mí</a>
+            <a href="#projects" class="mobile-nav-link">Proyectos</a>
+            <a href="#contact" class="mobile-nav-link">Contacto</a>
         </div>
+    </header>
 
-        <div class="container position-relative z-1 text-center text-white">
-          <h1 class="display-1 fw-bold hero-title">Elena Valencia</h1>
-          <p class="lead hero-subtitle mb-4">Graphic Designer</p>
-          <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary btn-lg me-3"
-              >View Projects</a
-            >
-            <a href="#contact" class="btn btn-outline-light btn-lg"
-              >Get in Touch</a
-            >
-          </div>
-        </div>
 
-        <!-- Scroll indicator -->
-        <div
-          class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-4"
-        >
-          <div class="mouse"></div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section id="about" class="py-5 py-lg-6 bg-dark">
+  <!-- ==========================
+  HERO
+  ========================== -->
+    <section id="home" class="home-section">
         <div class="container">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-              <div class="about-image gsap-reveal">
-                <img
-                  src="https://picsum.photos/600/700?random=10"
-                  alt="Profile"
-                  class="img-fluid rounded-4 shadow-lg"
-                />
-              </div>
+            <div class="home-content-wrapper">
+                <div class="home-left-section">
+                    <h1 class="main-title">
+                        <span class="title-line">ELENA</span>
+                        <span class="title-line">VALENCIA</span>
+                    </h1>
+                </div>
+                <div class="home-middle-section">
+                    <p class="home-subtitle">Diseñadora gráfica</p>
+                </div>
+                <div class="home-right-section">
+                    <a href="#projects" class="home-btn home-btn-primary">Ver proyectos</a>
+                    <a href="404.html" class="home-btn home-btn-secondary">Sobre mí</a>
+                </div>
             </div>
-            <div class="col-lg-6">
-              <h2 class="display-5 fw-bold mb-4 gsap-reveal">About Me</h2>
-              <p class="lead text-muted mb-4 gsap-reveal">
-                I'm a creative developer passionate about building beautiful,
-                functional, and accessible digital experiences.
-              </p>
-              <p class="text-muted gsap-reveal">
-                With 7+ years of experience spanning front-end development,
-                UI/UX design, and motion graphics, I bring a unique perspective
-                to every project. I believe in the power of animation to enhance
-                user experience without sacrificing performance.
-              </p>
-
-              <!-- Skills with animated progress -->
-              <div class="skills mt-5">
-                <div class="skill-item gsap-reveal mb-3">
-                  <div class="d-flex justify-content-between mb-2">
-                    <span class="fw-semibold">React / Next.js</span>
-                    <span class="text-muted">95%</span>
-                  </div>
-                  <div class="progress" style="height: 8px">
-                    <div class="progress-bar skill-bar" data-width="95"></div>
-                  </div>
-                </div>
-                <div class="skill-item gsap-reveal mb-3">
-                  <div class="d-flex justify-content-between mb-2">
-                    <span class="fw-semibold">GSAP / Animation</span>
-                    <span class="text-muted">90%</span>
-                  </div>
-                  <div class="progress" style="height: 8px">
-                    <div class="progress-bar skill-bar" data-width="90"></div>
-                  </div>
-                </div>
-                <div class="skill-item gsap-reveal mb-3">
-                  <div class="d-flex justify-content-between mb-2">
-                    <span class="fw-semibold">Node.js / Express</span>
-                    <span class="text-muted">85%</span>
-                  </div>
-                  <div class="progress" style="height: 8px">
-                    <div class="progress-bar skill-bar" data-width="85"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Projects Section -->
-      <section id="projects" class="py-5 py-lg-6">
+  <!-- ==========================
+  SOBRE MÍ
+  ========================== -->
+    <section id="about" class="about-section">
         <div class="container">
-          <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold gsap-reveal">Featured Projects</h2>
-            <p class="lead text-muted gsap-reveal">
-              A selection of my recent work
-            </p>
-          </div>
-
-          <div class="row g-4">
-            <!-- Project Card 1 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="card project-card h-100 border-0 shadow-sm">
-                <div class="card-img-wrapper overflow-hidden">
-                  <img
-                    src="https://picsum.photos/400/300?random=1"
-                    class="card-img-top"
-                    alt="E-commerce Platform"
-                  />
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-image-section">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/sobremi.jpg" alt="Elena Valencia" class="about-image">
+                    </div>
+                    <div class="about-info-card">
+                        <div class="info-card-name">Elena Valencia</div>
+                        <div class="info-card-degree">UDIT - Grado Diseño Multimedia y Gráfico</div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <h3 class="card-title h5">E-commerce Platform</h3>
-                  <p class="card-text text-muted small">
-                    Full-stack e-commerce solution with real-time inventory and
-                    Stripe integration.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <span class="badge bg-primary-subtle text-primary"
-                      >React</span
-                    >
-                    <span class="badge bg-primary-subtle text-primary"
-                      >Node.js</span
-                    >
-                    <span class="badge bg-primary-subtle text-primary"
-                      >MongoDB</span
-                    >
-                  </div>
+                <div class="about-text-wrapper">
+                    <h3 class="about-headline">Cada proyecto es una historia que se puede contar a través del diseño.</h3>
+                    <p class="about-paragraph">Me apasiona el diseño de marca, editorial y web, así como la creación de experiencias visuales que comuniquen emociones y conecten con las personas. Siento un especial interés por el diseño de marca aplicado al deporte, donde cada detalle refleja el esfuerzo, identidad y narrativa. Además, de proyectos relacionados con la fotografía, el diseño de portadas, permitiendo contar historias a través del diseño.</p>
+                    <p class="about-paragraph">He trabajado tanto en el ámbito académico como en el profesional. Durante mis prácticas, formé parte del diseño de publicidad de la marca, prototipo de diseño web y acciones de marketing, reforzando mis habilidades en diseño aplicado y comunicación visual, aprendiendo a integrar la creatividad y la estrategia en proyectos reales.</p>
+                    <div class="skills-bars-wrapper">
+                        <div class="skills-bars">
+                        <div class="skill-bar">
+                            <div class="skill-bar-label">
+                                <span>Adobe</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-label">
+                                <span>Cinema 4D</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-label">
+                                <span>Diseño UX/UI</span>
+                                <span class="skill-percentage">87%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-label">
+                                <span>HTML / CSS / JV</span>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </article>
             </div>
-
-            <!-- Project Card 2 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="card project-card h-100 border-0 shadow-sm">
-                <div class="card-img-wrapper overflow-hidden">
-                  <img
-                    src="https://picsum.photos/400/300?random=2"
-                    class="card-img-top"
-                    alt="Dashboard UI"
-                  />
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title h5">Analytics Dashboard</h3>
-                  <p class="card-text text-muted small">
-                    Real-time data visualization with interactive charts and
-                    dark mode.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <span class="badge bg-primary-subtle text-primary"
-                      >D3.js</span
-                    >
-                    <span class="badge bg-primary-subtle text-primary"
-                      >WebSocket</span
-                    >
-                    <span class="badge bg-primary-subtle text-primary"
-                      >GSAP</span
-                    >
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <!-- Project Card 3 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="card project-card h-100 border-0 shadow-sm">
-                <div class="card-img-wrapper overflow-hidden">
-                  <img
-                    src="https://picsum.photos/400/300?random=3"
-                    class="card-img-top"
-                    alt="Mobile App"
-                  />
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title h5">Fitness Mobile App</h3>
-                  <p class="card-text text-muted small">
-                    Cross-platform fitness tracker with workout plans and
-                    progress analytics.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <span class="badge bg-primary-subtle text-primary"
-                      >React Native</span
-                    >
-                    <span class="badge bg-primary-subtle text-primary"
-                      >Firebase</span
-                    >
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <!-- Project Card 4 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="card project-card h-100 border-0 shadow-sm">
-                <div class="card-img-wrapper overflow-hidden">
-                  <img
-                    src="https://picsum.photos/400/300?random=4"
-                    class="card-img-top"
-                    alt="Portfolio Site"
-                  />
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title h5">Agency Website</h3>
-                  <p class="card-text text-muted small">
-                    Award-winning agency site with scroll-driven animations and
-                    3D elements.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <span class="badge bg-primary-subtle text-primary"
-                      >Three.js</span
-                    >
-                    <span class="badge bg-primary-subtle text-primary"
-                      >GSAP</span
-                    >
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <!-- Project Card 5 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="card project-card h-100 border-0 shadow-sm">
-                <div class="card-img-wrapper overflow-hidden">
-                  <img
-                    src="https://picsum.photos/400/300?random=5"
-                    class="card-img-top"
-                    alt="SaaS Platform"
-                  />
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title h5">SaaS Platform</h3>
-                  <p class="card-text text-muted small">
-                    Multi-tenant SaaS with role-based access and subscription
-                    management.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <span class="badge bg-primary-subtle text-primary"
-                      >Next.js</span
-                    >
-                    <span class="badge bg-primary-subtle text-primary"
-                      >Prisma</span
-                    >
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <!-- Project Card 6 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="card project-card h-100 border-0 shadow-sm">
-                <div class="card-img-wrapper overflow-hidden">
-                  <img
-                    src="https://picsum.photos/400/300?random=6"
-                    class="card-img-top"
-                    alt="AI Tool"
-                  />
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title h5">AI Content Generator</h3>
-                  <p class="card-text text-muted small">
-                    GPT-powered content creation tool with custom fine-tuning
-                    options.
-                  </p>
-                  <div class="d-flex flex-wrap gap-2">
-                    <span class="badge bg-primary-subtle text-primary"
-                      >OpenAI</span
-                    >
-                    <span class="badge bg-primary-subtle text-primary"
-                      >Python</span
-                    >
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="py-5 py-lg-6 bg-dark">
+  <!-- ==========================
+  PROYECTOS
+  ========================== -->
+    <section id="projects" class="projects-section">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-              <h2 class="display-5 fw-bold mb-4 gsap-reveal">
-                Let's Work Together
-              </h2>
-              <p class="lead text-muted mb-5 gsap-reveal">
-                Have a project in mind? I'd love to hear about it. Let's create
-                something amazing.
-              </p>
-              <div class="gsap-reveal">
-                <a
-                  href="mailto:hello@example.com"
-                  class="btn btn-primary btn-lg mb-4"
-                >
-                  Start a Conversation
-                </a>
-              </div>
-              <div
-                class="social-links gsap-reveal d-flex justify-content-center gap-4"
-              >
-                <a href="#" class="text-muted fs-4" aria-label="GitHub">
-                  <svg
-                    width="24"
-                    height="24"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-                <a href="#" class="text-muted fs-4" aria-label="LinkedIn">
-                  <svg
-                    width="24"
-                    height="24"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                    />
-                  </svg>
-                </a>
-                <a href="#" class="text-muted fs-4" aria-label="Twitter">
-                  <svg
-                    width="24"
-                    height="24"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                    />
-                  </svg>
-                </a>
-              </div>
+            <h2 class="section-title">Proyectos</h2>
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card" data-project="zapatillas-nike" onclick="openProjectModal('zapatillas-nike')">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/nike_campaña.jpg" alt="Zapatillas Nike" class="project-image">
+                    </div>
+                    <div class="project-divider"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Nike</h3>
+                        <p class="project-description">Campaña de zapatillas de tenis para el Grand Slam de Wimbledon.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Modelado 3D</span>
+                            <span class="project-tag">Cinema 4D</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="rhode" onclick="openProjectModal('rhode')">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/rhode.png" alt="Rhode" class="project-image">
+                    </div>
+                    <div class="project-divider"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Rhode</h3>
+                        <p class="project-description">Spot publicitario para Rhode centrado en el diseño, estética y narrativa visual contemporánea.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Premiere Pro</span>
+                            <span class="project-tag">After Effects</span>
+                            <span class="project-tag">Spot publicitario</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="new-yorker" onclick="openProjectModal('new-yorker')">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/the_new_yorker_mockup.jpg" alt="The New Yorker" class="project-image">
+                    </div>
+                    <div class="project-divider"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">The New Yorker</h3>
+                        <p class="project-description">Portada ilustrada para The New Yorker inspirada en el golf.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Illustrator</span>
+                            <span class="project-tag">Photoshop</span>
+                            <span class="project-tag">Editorial</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="henryk" onclick="openProjectModal('henryk')">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/revista_portada.jpg" alt="Henryk Tomaszewski" class="project-image">
+                    </div>
+                    <div class="project-divider"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Henryk Tomaszewski</h3>
+                        <p class="project-description">Revista editorial inspirada en el lenguaje gráfico y las obras de Henryk Tomaszewski.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">InDesign</span>
+                            <span class="project-tag">Photoshop</span>
+                            <span class="project-tag">Editorial</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="beatles" onclick="openProjectModal('beatles')">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/poster.jpeg" alt="The Beatles - Chupa Chups" class="project-image">
+                    </div>
+                    <div class="project-divider"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">The Beatles - Chupa Chups</h3>
+                        <p class="project-description">Cartel publicitario inspirado en The Beatles para una campaña publicitaria de Chupa Chups.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Illustrator</span>
+                            <span class="project-tag">Photoshop</span>
+                            <span class="project-tag">Dirección de arte</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="diseno-grafico" onclick="openProjectModal('diseno-grafico')">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/web_home.jpg" alt="ESTO ES Diseño Gráfico" class="project-image">
+                    </div>
+                    <div class="project-divider"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">ESTO ES Diseño Gráfico</h3>
+                        <p class="project-description">Diseño web interactivo para una exposición de diseño gráfico, con galerías.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Figma</span>
+                            <span class="project-tag">HTML y CSS</span>
+                            <span class="project-tag">Diseño web</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    <footer class="py-4 text-center text-muted small">
-      <div class="container">
-        <p class="mb-0">
-          &copy; 2025 John Designer. Built with Bootstrap 5 + GSAP.
-        </p>
-      </div>
-    </footer>
+  <!-- ==========================
+  CONTACTO
+  ========================== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <div class="lets-work-text">LET'S WORK</div>
+                <div class="contact-form-wrapper">
+                    <p class="contact-intro">¿Tienes un proyecto en mente? Me encantaría saberlo.</p>
+                    <p class="contact-subtitle">Creemos algo increíble.</p>
+                    <button class="contact-btn" onclick="window.location.href='mailto:elenavdlc@gmail.com'">Enviar mail</button>
+                    <div class="social-links-contact">
+                        <a href="https://www.instagram.com/elenavalencia.jpg?igsh=ZHl0YWw4NDhtczM%3D&utm_source=qr" class="social-link">Instagram</a>
+                        <a href="https://github.com/elenavdlc?tab=repositories" class="social-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <div class="container">
+                <p class="footer-copyright">© 2026 Elena Valencia. Creado con Bootstrap 5 + GSAP.</p>
+            </div>
+        </footer>
+    </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <!-- PROYECTO MODAL - VENTANA EMERGENTE -->
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-overlay" onclick="closeProjectModal()"></div>
+        <div class="project-modal-content">
+            <button class="project-modal-close" onclick="closeProjectModal()">×</button>
+            <div id="projectModalBody"></div>
+        </div>
+    </div>
 
-    <!-- GSAP + Plugins -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollToPlugin.min.js"></script>
-  </body>
+    <!-- CUSTOM JS -->
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/project-modal.js"></script>
+</body>
 </html>

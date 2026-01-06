@@ -1,0 +1,28 @@
+/* ============================================
+   INDEX.CSS
+   - ARCHIVO BARREL - CENTRALIZA TODOS LOS IMPORTS
+============================================ */
+
+/* BASE, RESET, VARIABLES, ESTILOS DE RAÍZ */
+@import url("base.css");
+
+/* LAYOUT - UTILIDADES DE LAYOUT/GRID/FLEX */
+@import url("layout.css");
+
+/* COMPONENTES - COMPONENTES COMPARTIDOS */
+@import url("components.css");
+
+/* SECTIONS - ESTILOS ESPECÍFICOS DE LAS SECCIONES */
+@import url("sections.css");
+
+/* RESPONSIVE - MEDIA QUERIES */
+@import url("responsive.css");
+
+/* ANIMATIONS - ANIMACIONES GSAP */
+@import url("animations.css");
+
+/* PROJECT MODAL - ESTILO DE LA VENTANA EMERGENTE */
+@import url("project-modal.css");
+
+/* 404 - ESTILO DE LA PÁGINA 404 */
+@import url("404.css");
