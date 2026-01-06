@@ -1,0 +1,122 @@
+/* ============================================
+
+   ANIMATIONS.CSS
+   - ANIMACIONES GSAP Y EFECTOS
+
+============================================ */
+
+/* ANIMACIONES GSAP */
+.fade-in {
+  opacity: 0;
+}
+
+.slide-up {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+/* ESTILOS PARA SPLIT TEXT */
+.split-word,
+.split-char,
+.split-line {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.split-word {
+  white-space: nowrap;
+}
+
+.split-char {
+  white-space: normal;
+}
+
+.split-line {
+  display: block;
+  overflow: hidden;
+}
+
+/* ESTILOS PARA ELEMENTOS CON EFECTO */
+.skill-tag,
+.project-card,
+.contact-btn,
+.segment {
+  will-change: transform;
+}
+
+/* HEADER SCROLLED */
+.navbar-custom.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .navbar-custom.scrolled {
+  box-shadow: 0 2px 20px rgba(255, 255, 255, 0.05);
+}
+
+/* PROYECTOS */
+.project-card {
+  background: var(--color-bg-alt);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-img-wrapper {
+  aspect-ratio: 4/3;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .card-img-wrapper img {
+  transform: scale(1.08);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+}
+
+/* BADGE STYLING */
+.bg-primary-subtle {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+.text-primary {
+  color: var(--bs-primary) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .shape {
+    display: none;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-card:hover .card-img-wrapper img {
+    transform: none;
+  }
+}
