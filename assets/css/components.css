@@ -1,0 +1,282 @@
+/* ============================================
+
+   COMPONENTS.CSS
+   - NAVBAR - HEADER
+   - MENÚ
+   - BOTONES
+   - TOOGLES 
+   - MODO OSCURO
+   
+============================================ */
+
+/*==========================================
+
+ MODO CLARO 
+
+==================================================*/
+
+/* =======================================
+HEADER
+==========================================*/
+.navbar-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: var(--transition);
+  padding: 1.5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: 0 clamp(1rem, 4vw, 2rem);
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* =======================================
+HEADER - NOMBRE
+==========================================*/
+.navbar-custom .logo {
+  position: fixed;
+  left: 2rem;
+  z-index: 1100;
+}
+
+.navbar-custom .logo a {
+  font-family: "Against", "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* =======================================
+HEADER - MENÚ
+==========================================*/
+.segmented-control {
+  display: flex;
+  border: 2px solid var(--yellow-accent);
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.segment {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  padding: 0.75rem clamp(1rem, 2vw, 1.5rem);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  background-color: transparent;
+  border: none;
+  min-width: fit-content;
+}
+
+.segment:first-child {
+  border-radius: 50px 0 0 50px;
+}
+
+.segment:last-child {
+  border-radius: 0 50px 50px 0;
+}
+
+.segment:hover {
+  opacity: 0.8;
+}
+
+.segment.active {
+  background-color: var(--yellow-accent);
+  color: #000000;
+  font-weight: 500;
+}
+
+/* =======================================
+HEADER - MENÚ HAMBURGUESA
+==========================================*/
+.mobile-menu-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transform: rotate(0deg) translate(115px);
+}
+
+.mobile-menu-btn span {
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: var(--transition);
+}
+
+/* ICONO MENÚ A CIERRE  */
+.mobile-menu-btn.active span {
+  opacity: 0;
+}
+
+/* SECCIONES DEL MENÚ */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--bg-color);
+  border-left: 2px solid var(--text-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: right 0.3s ease;
+  z-index: 999;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 998;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.dark-mode-toggle-float {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--yellow-accent);
+  background-color: var(--bg-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode-toggle-float:hover {
+  transform: scale(1.1);
+}
+
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: block;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+  content: "";
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+body:not([data-theme="dark"]) .toggle-icon::before {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--yellow-accent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body:not([data-theme="dark"]) .toggle-icon::after {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  box-shadow: -2px 0 0 var(--yellow-accent);
+}
+
+/* =======================================
+PROYECTOS
+==========================================*/
+body:not([data-theme="dark"]) .project-tag {
+  color: #000000;
+  /* border-color: var(--yellow-accent); */
+}
+
+/* =======================================
+FOOTER
+==========================================*/
+body:not([data-theme="dark"]) .footer-copyright {
+  color: #000000;
+}
+
+/*==========================================
+
+ MODO OSCURO 
+
+==================================================*/
+/* HEADER - NOMBRE */
+[data-theme="dark"] .navbar-custom .logo a {
+  color: #ffffff;
+}
+
+/* HEADER - ICONO MODO OSCURO */
+[data-theme="dark"] .toggle-icon::before {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--yellow-accent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-theme="dark"] .toggle-icon::after {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--yellow-accent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-theme="dark"] .mobile-nav-link {
+  border-bottom: 1px solid #ffffff;
+}
