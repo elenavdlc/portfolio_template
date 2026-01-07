@@ -2,9 +2,9 @@
 # This file will be used to generate your entry in the course showroom
 
 # Basic information
-handle: your-github-username
-name: Your Full Name
-email: your-email@udit.es
+handle: (@elenavdlc)
+name: Elena Valencia de la Calle
+email: elena.valencia@alumnos.udit.es
 
 # URLs (will be auto-generated if you follow naming conventions)
 github_url: https://github.com/your-username
@@ -13,16 +13,15 @@ repository_url: https://github.com/your-username/your-project-repo
 
 # Project details
 title:
-  es: Título de tu Proyecto en Español
-  en: Your Project Title in English
+  es: Portfolio profesional de Elena Valencia
+  en: Elena Valencia's profesional portfolio
 
 abstract:
   es: |
-    Una descripción concisa de tu proyecto web en español. 
-    Explica qué construyes, para quién y por qué es importante.
+    Este proyecto consiste en el diseño y desarrollo de una plantilla para un portfolio web, siendo un espacio digital en el que se presenta de forma clara y visual proyectos realizados por el artista. El público objetivo al que va dirigido son aquellas personas interesadas en el diseño, no hay un rango de edad fijo. El propósito principal del proyecto era realizar un portfolio web que fuese adaptable en distintos dispositivos, implementar distintas tendencias y además de la utilización de Bootstrap, GSAP, efectos como parallax, scrolltrigger o split text.
+
   en: |
-    A concise description of your web project in English.
-    Explain what you're building, for whom, and why it matters.
+    This project consists of the design and development of a template for a web porfolio, which is a digital space where the artist's projects are presented in a clear and visual way. The target audience is people who are intereste in design, with no fixed age range. The main purpose of the project was to create a web porfolio that is responsive in different devices, include design trends, and make use of technologies such as Bootstrap and GSAP, as well as effects like Prallax, ScrollTrigger or Split Text.
 
 # Technical tags (choose relevant ones)
 tags:
@@ -30,6 +29,8 @@ tags:
   - css3
   - responsive-design
   - accessibility
+  - javascript
+  - graphic-design
   # Add more as relevant: javascript, sass, performance, etc.
 
 # Learning objectives you're focusing on
@@ -37,14 +38,4 @@ learning_focus:
   - semantic-html
   - mobile-first-design
   - web-accessibility
-  # Add more as you progress
-
-# Week tracking (update as you go)
-milestones:
-  week_1_setup: false
-  week_2_brief: false
-  week_4_metadata: false
-  week_5_showcase: false
-
-# Optional: link to your project brief
-brief_url: project-brief.md
+  - dark-mode
