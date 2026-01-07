@@ -1,4 +1,4 @@
-# WELCOME TO MY PORTFOLIO
+# BIENVENIDO A MI PORTFOLIO
 
-> Here you can find my site live!
+> Aquí puedes encontrar mi página en vivo!!
 > [https://elenavdlc.github.io/portfolio_template/](https://elenavdlc.github.io/portfolio_template/)

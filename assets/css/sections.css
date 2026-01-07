@@ -561,3 +561,11 @@ SECCIÓN FOOTER
 .social-link:hover {
   color: var(--yellow-accent);
 }
+
+body:not([data-theme="dark"]) .social-link:hover {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .social-link:hover {
+  color: var(--yellow-accent);
+}
