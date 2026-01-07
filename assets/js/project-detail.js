@@ -6,7 +6,6 @@ const projectData = {
     image: "assets/images/nike_campaña.jpg",
     video: null,
     images: [
-      "assets/images/nike_render.jpg",
       "assets/images/nike_clayrender.jpg",
       "assets/images/nike_modelado.jpg",
     ],
